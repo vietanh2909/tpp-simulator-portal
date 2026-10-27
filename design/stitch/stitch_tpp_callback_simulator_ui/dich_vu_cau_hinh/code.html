@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"outline-variant":"#c7c4d8","surface-dim":"#cbdbf5","on-surface-variant":"#464555","inverse-surface":"#213145","on-error-container":"#93000a","on-secondary-fixed-variant":"#004c6e","tertiary-fixed-dim":"#ffb95f","surface-container":"#e5eeff","on-primary-fixed-variant":"#3323cc","on-secondary-container":"#004666","tertiary-container":"#885500","on-error":"#ffffff","surface-container-highest":"#d3e4fe","inverse-on-surface":"#eaf1ff","surface-container-low":"#eff4ff","on-primary-container":"#dad7ff","on-tertiary-fixed-variant":"#653e00","on-surface":"#0b1c30","on-background":"#0b1c30","on-primary":"#ffffff","secondary-fixed":"#c9e6ff","surface-bright":"#f8f9ff","tertiary":"#684000","secondary":"#006591","primary-fixed":"#e2dfff","on-tertiary-fixed":"#2a1700","on-tertiary":"#ffffff","surface-container-high":"#dce9ff","outline":"#777587","primary":"#3525cd","on-secondary":"#ffffff","primary-container":"#4f46e5","surface-container-lowest":"#ffffff","secondary-container":"#39b8fd","secondary-fixed-dim":"#89ceff","background":"#f8f9ff","tertiary-fixed":"#ffddb8","inverse-primary":"#c3c0ff","primary-fixed-dim":"#c3c0ff","on-primary-fixed":"#0f0069","error":"#ba1a1a","surface-tint":"#4d44e3","surface":"#f8f9ff","on-secondary-fixed":"#001e2f","on-tertiary-container":"#ffd4a4","surface-variant":"#d3e4fe","error-container":"#ffdad6"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-sm":"0.375rem","gutter-desktop":"1rem","space-lg":"1rem","space-md":"0.75rem","space-xl":"1.5rem","space-xs":"0.25rem","margin":"1rem","margin-desktop":"1.5rem","gutter":"0.75rem"},"fontFamily":{"label-sm":["JetBrains Mono"],"body-sm":["Inter"],"headline-sm":["Inter"],"body-lg":["Inter"],"headline-md":["Inter"],"code-body":["JetBrains Mono"],"label-md":["JetBrains Mono"],"body-md":["Inter"],"label-lg":["JetBrains Mono"],"headline-lg":["Inter"]},"fontSize":{"label-sm":["11px",{"lineHeight":"14px","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-sm":["15px",{"lineHeight":"20px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-md":["18px",{"lineHeight":"24px","letterSpacing":"-0.015em","fontWeight":"600"}],"code-body":["12px",{"lineHeight":"18px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","fontWeight":"500"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-lg":["13px",{"lineHeight":"18px","fontWeight":"500"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-60 bg-surface-container-lowest flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50"><div class="flex flex-col"><div class="p-space-lg"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">TPP Simulator</span><span class="px-space-xs py-0.5 rounded-lg bg-tertiary-container text-on-tertiary font-label-sm text-label-sm uppercase tracking-wide">UAT</span></div><p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">Môi trường kiểm thử</p><div class="mt-space-md p-space-sm rounded-lg bg-surface-container-low flex items-center gap-space-xs"><span class="material-symbols-outlined text-secondary text-[16px]">schedule</span><span class="font-label-sm text-label-sm text-on-surface-variant">Múi giờ: GMT+7 (Asia/Ho_Chi_Minh)</span></div></div><div class="px-space-md mt-space-xs"><nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary text-on-primary font-medium rounded-lg shadow-sm"><a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm transition-colors bg-primary text-on-primary font-medium rounded-lg shadow-sm" data-path="services" href="#"><span class="material-symbols-outlined text-[18px]">webhook</span><span>Dịch vụ</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="transactions" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span><span>Theo dõi giao dịch</span></a></nav></div></div><div class="p-space-md m-space-md rounded-lg bg-surface-container-low"><div class="flex items-start gap-space-xs"><span class="material-symbols-outlined text-primary text-[15px] mt-0.5">terminal</span><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface font-semibold">Simulator v1.4.0-uat</span><span class="font-body-sm text-body-sm text-on-surface-variant">Nhận HTTP Callback</span></div></div></div></aside><div class="pl-60"><header class="fixed top-0 left-60 right-0 h-14 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter-desktop"><div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm"><span class="material-symbols-outlined text-[16px]">domain</span><span>Ngân hàng Sandbox</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span class="text-on-surface font-medium">TPP Webhook Engine</span></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded-lg bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-secondary-container"></span><span class="font-label-sm text-label-sm text-on-surface font-medium">Endpoint Receiver: Đang hoạt động</span></div><div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant bg-surface-container-lowest px-space-sm py-1 rounded-lg"><span class="material-symbols-outlined text-[15px]">access_time</span><span>UAT GMT+7</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-14 w-full min-h-screen bg-surface"><div class="flex flex-col w-full">
+<!-- Toast Notification (Hidden by default, triggered by JS) -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-12 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-space-sm px-space-lg py-space-md rounded-xl bg-inverse-surface text-inverse-on-surface shadow-xl" id="toast-success">
+<span class="material-symbols-outlined text-[20px] text-secondary-container">check_circle</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm">Lưu cấu hình thành công</span>
+<span class="font-body-sm text-body-sm text-outline-variant">Đã cập nhật dịch vụ callback: thu-ho (v1.4)</span>
+</div>
+</div>
+<!-- Top Navigation & Action Command Bar -->
+<section class="w-full bg-surface-container-lowest shadow-sm px-gutter-desktop py-space-md mb-space-lg">
+<div class="max-w-[1520px] mx-auto flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<!-- Left: Breadcrumbs & Return link -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[15px]">arrow_back</span>
+<span>Dịch vụ callback</span>
+</a>
+<span class="text-outline">/</span>
+<span class="text-on-surface font-medium">Chỉnh sửa dịch vụ:</span>
+<span class="px-space-xs py-0.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">thu-ho</span>
+</div>
+<div class="flex items-center gap-space-sm mt-0.5">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container animate-pulse"></span>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Cấu hình Dịch vụ &amp; Mapping</h1>
+<span class="px-space-xs py-0.5 rounded-lg bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">ID: SRV-0091-TH</span>
+</div>
+</div>
+<!-- Right: Global Actions -->
+<div class="flex items-center gap-space-md">
+<button class="h-8 px-space-md rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-headline-sm text-headline-sm transition-all flex items-center gap-space-xs shadow-sm active:scale-95" id="btn-test-callback" type="button">
+<span class="material-symbols-outlined text-[17px] text-secondary">send</span>
+<span>Gửi callback thử</span>
+</button>
+<button class="h-8 px-space-lg rounded-lg bg-primary-container text-on-primary hover:bg-primary font-headline-sm text-headline-sm transition-all flex items-center gap-space-xs shadow-md active:scale-95" id="btn-save-config" type="button">
+<span class="material-symbols-outlined text-[17px]">save</span>
+<span>Lưu cấu hình</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Main Content Layout (Dual Workspace Grid) -->
+<div class="max-w-[1520px] mx-auto w-full px-gutter-desktop pb-16 flex flex-col gap-space-lg">
+<!-- Grid Row 1: General Info & Authentication (Side-by-side or stacked) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Section A: Thông tin chung (8 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-space-sm mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">A. Thông tin chung</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Định danh dịch vụ webhook và endpoint nhận tín hiệu</p>
+</div>
+</div>
+<!-- Active Toggle Switch -->
+<label class="flex items-center gap-space-sm cursor-pointer select-none">
+<span class="font-label-md text-label-md text-on-surface font-semibold" id="toggle-label">Đang bật</span>
+<div class="relative">
+<input checked="" class="sr-only peer" id="service-status-toggle" type="checkbox"/>
+<div class="w-10 h-5 bg-surface-container-high rounded-full peer peer-checked:bg-primary peer-focus:ring-2 peer-focus:ring-primary/20 transition-colors"></div>
+<div class="absolute left-0.5 top-0.5 bg-surface-container-lowest w-4 h-4 rounded-full transition-transform peer-checked:translate-x-5 shadow-sm"></div>
+</div>
+</label>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Mã dịch vụ (Disabled/Readonly) -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant flex items-center justify-between">
+<span>Mã dịch vụ (Service Slug)</span>
+<span class="material-symbols-outlined text-[14px] text-outline">lock</span>
+</label>
+<input class="h-8 px-space-sm rounded-lg bg-surface-container text-on-surface-variant font-code-body text-code-body cursor-not-allowed opacity-90 select-none" disabled="" readonly="" type="text" value="thu-ho"/>
+<span class="font-body-sm text-[11px] leading-tight text-outline mt-0.5">Mã dịch vụ là định danh cố định không thể sửa sau khi tạo</span>
+</div>
+<!-- Tên dịch vụ -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Tên dịch vụ hiển thị <span class="text-error">*</span></label>
+<input class="h-8 px-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest shadow-sm" type="text" value="Thu hộ"/>
+<span class="font-body-sm text-[11px] leading-tight text-on-surface-variant mt-0.5">Hiển thị trong nhật ký trace &amp; báo cáo đối soát</span>
+</div>
+</div>
+<!-- Mô tả dịch vụ -->
+<div class="flex flex-col gap-1 mt-space-md">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Mô tả (Không bắt buộc)</label>
+<input class="h-8 px-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest shadow-sm" type="text" value="Giả lập đối tác nhận callback giao dịch thu hộ tiền điện/nước/học phí từ Core Banking"/>
+</div>
+</div>
+<!-- URL Callback Box -->
+<div class="mt-space-lg p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">URL Callback Nhận Tín Hiệu (Endpoint)</span>
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded-lg bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold">POST</span>
+<span class="px-space-xs py-0.5 rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm">application/json</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm mt-1">
+<div class="flex-1 px-space-sm py-1.5 rounded-lg bg-surface-container-lowest text-on-surface font-code-body text-code-body shadow-sm truncate select-all" id="callback-url-text">
+              https://tpp-uat.example.com/callbacks/thu-ho
+            </div>
+<button class="h-8 w-8 rounded-lg bg-surface-container text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors flex items-center justify-center shrink-0" id="copy-url-btn" title="Sao chép URL" type="button">
+<span class="material-symbols-outlined text-[17px]" id="copy-icon">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Section B: Xác thực (4 Cols) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-space-sm pb-space-sm mb-space-md">
+<span class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">B. Cơ chế xác thực</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Bảo vệ webhook receiver đối soát</p>
+</div>
+</div>
+<!-- Radio group for Auth mode -->
+<div class="flex items-center gap-space-lg p-space-sm rounded-lg bg-surface-container-low mb-space-md">
+<label class="flex items-center gap-space-xs cursor-pointer text-on-surface-variant hover:text-on-surface">
+<input class="w-4 h-4 text-primary focus:ring-0" name="auth_mode" type="radio" value="none"/>
+<span class="font-body-md text-body-md">Không xác thực</span>
+</label>
+<label class="flex items-center gap-space-xs cursor-pointer text-on-surface font-semibold">
+<input checked="" class="w-4 h-4 text-primary focus:ring-0" name="auth_mode" type="radio" value="apikey"/>
+<span class="font-body-md text-body-md">API Key Header</span>
+</label>
+</div>
+<!-- API Key fields (Active) -->
+<div class="flex flex-col gap-space-md" id="apikey-fields-container">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Tên Header (Request Header Name)</label>
+<div class="relative">
+<input class="w-full h-8 px-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-code-body text-code-body shadow-sm" type="text" value="X-API-KEY"/>
+<span class="absolute right-2 top-1.5 font-label-sm text-label-sm text-outline">HTTP</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Giá trị khóa (Secret Token)</label>
+<div class="relative flex items-center">
+<input class="w-full h-8 px-space-sm pr-9 rounded-lg bg-surface-container-lowest text-on-surface font-code-body text-code-body shadow-sm" data-masked="••••••••••••••••••••3a9f" id="api-secret-input" type="password" value="tpp_uat_sec_9941a8e2"/>
+<button class="absolute right-1 text-on-surface-variant hover:text-on-surface p-1 rounded-lg" id="toggle-secret-btn" type="button">
+<span class="material-symbols-outlined text-[18px]" id="secret-eye-icon">visibility</span>
+</button>
+</div>
+<span class="font-body-sm text-[11px] text-outline mt-0.5">Khóa bí mật được mã hóa SHA-256 trên cụm Sandbox Gateway</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md p-space-sm rounded-lg bg-surface-container-high/60 flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">info</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Header sẽ được đối soát tự động trước khi parse JSONPath.</span>
+</div>
+</div>
+</div>
+<!-- Section C: Mapping dữ liệu (Data Mapping Table & Timestamp Normalization) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between pb-space-sm gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">schema</span>
+</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">C. Mapping dữ liệu (Standard Field Schema)</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ánh xạ payload JSON tuỳ biến của Ngân hàng sang 3 trường chuẩn của Simulator</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm text-on-surface-variant bg-surface-container-low px-space-sm py-1 rounded-lg">
+<span class="material-symbols-outlined text-[15px] text-primary">code_blocks</span>
+<span>Cú pháp RFC 9535 (JSONPath)</span>
+</div>
+</div>
+<!-- Mapping Table -->
+<div class="overflow-x-auto rounded-lg bg-surface-container-lowest">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">
+<th class="py-2.5 px-space-md w-1/4">Trường chuẩn TPP</th>
+<th class="py-2.5 px-space-md w-1/3">Biểu thức JSONPath (Ngân hàng)</th>
+<th class="py-2.5 px-space-md w-1/4">Kiểu dữ liệu</th>
+<th class="py-2.5 px-space-md">Trạng thái</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1: transactionId -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-code-body text-code-body font-semibold text-primary">transactionId</span>
+<span class="px-1 py-0.2 bg-error-container text-on-error-container text-[10px] rounded font-label-sm">Bắt buộc</span>
+</div>
+<span class="font-body-sm text-[11px] text-outline">Mã định danh giao dịch phía Core</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="relative">
+<input class="h-8 w-full px-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-code-body text-code-body shadow-sm" id="map-trans-id" type="text" value="$.transId"/>
+<span class="font-body-sm text-[11px] text-outline mt-0.5 block">Hỗ trợ nested path ví dụ: <code class="text-on-surface-variant font-code-body">$.data.transId</code></span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="font-code-body text-[11px] px-space-xs py-0.5 rounded bg-surface-container text-on-surface font-medium">String / Integer</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1 text-[11px] font-label-sm text-secondary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Đã map
+                </span>
+</td>
+</tr>
+<!-- Row 2: status -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-code-body text-code-body font-semibold text-primary">status</span>
+<span class="px-1 py-0.2 bg-error-container text-on-error-container text-[10px] rounded font-label-sm">Bắt buộc</span>
+</div>
+<span class="font-body-sm text-[11px] text-outline">Trạng thái kết quả thu hộ</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="relative">
+<input class="h-8 w-full px-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-code-body text-code-body shadow-sm" id="map-status" type="text" value="$.code"/>
+<span class="font-body-sm text-[11px] text-outline mt-0.5 block">Ví dụ: <code class="text-on-surface-variant font-code-body">$.response.status</code> hoặc <code class="text-on-surface-variant font-code-body">$.status</code></span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="font-code-body text-[11px] px-space-xs py-0.5 rounded bg-surface-container text-on-surface font-medium">String / Enum</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1 text-[11px] font-label-sm text-secondary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Đã map
+                </span>
+</td>
+</tr>
+<!-- Row 3: timestamp -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-code-body text-code-body font-semibold text-primary">timestamp</span>
+<span class="px-1 py-0.2 bg-surface-container-high text-on-surface-variant text-[10px] rounded font-label-sm">Tùy chọn</span>
+</div>
+<span class="font-body-sm text-[11px] text-outline">Thời điểm phát sinh giao dịch</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="relative">
+<input class="h-8 w-full px-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-code-body text-code-body shadow-sm" id="map-timestamp" type="text" value="$.time"/>
+<span class="font-body-sm text-[11px] text-outline mt-0.5 block">Ví dụ: <code class="text-on-surface-variant font-code-body">$.timestamp</code> hoặc <code class="text-on-surface-variant font-code-body">$.audit.createdAt</code></span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="font-code-body text-[11px] px-space-xs py-0.5 rounded bg-surface-container text-on-surface font-medium">DateTime ISO / Epoch</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1 text-[11px] font-label-sm text-secondary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Đã map
+                </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Advanced Timestamp Parsing Config Subpanel -->
+<div class="p-space-md rounded-lg bg-surface-container-low mt-space-xs">
+<div class="flex items-center gap-space-xs mb-space-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">more_time</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Cấu hình chuẩn hoá Thời gian (Timestamp Normalization)</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Dropdown format type -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Loại định dạng thời gian</label>
+<select class="h-8 px-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md shadow-sm" id="timestamp-type-select">
+<option selected="" value="iso">ISO 8601 (Chuẩn quốc tế)</option>
+<option value="unix_sec">Unix Timestamp (Giây - 10 số)</option>
+<option value="unix_ms">Unix Timestamp (Mili giây - 13 số)</option>
+<option value="custom">Tùy chỉnh (Pattern-based)</option>
+</select>
+</div>
+<!-- Custom pattern input (Active when 'custom' selected or informational) -->
+<div class="flex flex-col gap-1" id="custom-pattern-wrapper">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Mẫu định dạng khi chọn Tùy chỉnh</label>
+<input class="h-8 px-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-code-body text-code-body shadow-sm" id="custom-pattern-input" placeholder="yyyy-MM-dd HH:mm:ss" type="text" value="yyyy-MM-dd HH:mm:ss"/>
+</div>
+<!-- Timezone dropdown -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Múi giờ mặc định (Fallback)</label>
+<select class="h-8 px-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md shadow-sm">
+<option selected="" value="Asia/Ho_Chi_Minh">Asia/Ho_Chi_Minh (GMT+7)</option>
+<option value="UTC">UTC (GMT+0)</option>
+<option value="Asia/Tokyo">Asia/Tokyo (GMT+9)</option>
+<option value="Asia/Singapore">Asia/Singapore (GMT+8)</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+<!-- Section D: Thử mapping (Interactive Tester trực tiếp) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between pb-space-sm gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">D. Thử nghiệm Mapping Trực Tiếp (Interactive Payload Tester)</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Kiểm tra ngay biểu thức JSONPath đối chiếu với payload thực tế</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="px-space-sm py-1 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors" id="btn-load-valid" type="button">
+            Mẫu hợp lệ
+          </button>
+<button class="px-space-sm py-1 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors" id="btn-load-error" type="button">
+            Mẫu gây lỗi (Missing key)
+          </button>
+</div>
+</div>
+<!-- Warning notification box -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[16px]">info</span>
+<span class="font-body-sm text-body-sm">Lưu ý an toàn: Trình kiểm tra chỉ thực thi phân tích dữ liệu trên bộ nhớ trình duyệt, <strong>không lưu bản ghi callback</strong> vào cơ sở dữ liệu UAT.</span>
+</div>
+<!-- Two-Column Interactive Workspace -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left Column: JSON Code Editor with Line Numbers (6 Cols) -->
+<div class="lg:col-span-6 flex flex-col">
+<div class="flex items-center justify-between px-space-md py-1.5 bg-surface-container-high rounded-t-lg">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface font-semibold">
+<span class="material-symbols-outlined text-[15px] text-primary">data_object</span>
+<span>Raw Request Payload (JSON)</span>
+</div>
+<span class="font-label-sm text-[11px] text-on-surface-variant" id="payload-bytes">86 bytes</span>
+</div>
+<!-- Code Well Container -->
+<div class="flex bg-surface-container-low rounded-b-lg overflow-hidden shadow-inner font-code-body text-code-body min-h-[190px]">
+<!-- Line Numbers Rail -->
+<div class="w-8 py-space-sm bg-surface-container text-right pr-2 text-outline select-none font-code-body text-code-body flex flex-col leading-[22px]" id="line-numbers-rail">
+<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+</div>
+<!-- Interactive Textarea -->
+<textarea class="flex-1 p-space-sm bg-transparent text-on-surface font-code-body text-code-body leading-[22px] resize-none focus:outline-none border-0 overflow-y-auto h-[190px]" id="mock-json-input" spellcheck="false">{
+  "transId": "TEST-001",
+  "code": "SUCCESS",
+  "time": "2026-10-18T00:05:00+07:00"
+}</textarea>
+</div>
+<div class="mt-space-md flex items-center justify-between">
+<button class="h-8 px-space-lg rounded-lg bg-primary-container text-on-primary hover:bg-primary font-headline-sm text-headline-sm transition-all flex items-center gap-space-xs shadow-md" id="btn-run-mapping-test" type="button">
+<span class="material-symbols-outlined text-[17px]">play_arrow</span>
+<span>Kiểm tra mapping</span>
+</button>
+<span class="font-body-sm text-[11px] text-outline">Engine: RFC9535 v1.2</span>
+</div>
+</div>
+<!-- Right Column: Mapping Extraction Results (6 Cols) -->
+<div class="lg:col-span-6 flex flex-col">
+<div class="flex items-center justify-between px-space-md py-1.5 bg-surface-container-high rounded-t-lg">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface font-semibold">
+<span class="material-symbols-outlined text-[15px] text-secondary">output</span>
+<span>Kết quả bóc tách (Parsed Mapping Output)</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-[11px] font-bold" id="mapping-verdict">3/3 HỢP LỆ</span>
+</div>
+<!-- Live Result Cards Container -->
+<div class="p-space-md bg-surface-container-low rounded-b-lg flex flex-col gap-space-sm min-h-[190px]" id="results-display-area">
+<!-- Result Field 1 -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest flex items-center justify-between shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-outline">standardField: <code class="text-primary font-code-body font-semibold">transactionId</code></span>
+<span class="font-code-body text-headline-sm text-on-surface font-semibold mt-0.5" id="res-val-transid">"TEST-001"</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-secondary font-label-sm text-[11px] font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> Hợp lệ
+              </span>
+</div>
+<!-- Result Field 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest flex items-center justify-between shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-outline">standardField: <code class="text-primary font-code-body font-semibold">status</code></span>
+<span class="font-code-body text-headline-sm text-on-surface font-semibold mt-0.5" id="res-val-status">"SUCCESS"</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-secondary font-label-sm text-[11px] font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> Hợp lệ
+              </span>
+</div>
+<!-- Result Field 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest flex items-center justify-between shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-outline">standardField: <code class="text-primary font-code-body font-semibold">timestamp</code> (ISO 8601)</span>
+<span class="font-code-body text-headline-sm text-on-surface font-semibold mt-0.5" id="res-val-timestamp">"2026-10-18 00:05:00 +07:00"</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-secondary font-label-sm text-[11px] font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">schedule</span> Chuẩn hoá OK
+              </span>
+</div>
+</div>
+<!-- Failure State (Inline Hidden helper) -->
+<div class="hidden mt-space-sm p-space-sm rounded-lg bg-error-container text-on-error-container flex items-start gap-space-xs" id="error-feedback-container">
+<span class="material-symbols-outlined text-[18px] shrink-0 mt-0.5">warning</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold">Lỗi cấu trúc Mapping:</span>
+<span class="font-body-sm text-body-sm" id="error-feedback-text">Không tìm thấy trường JSONPath `$.transId` trong payload vừa gửi.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section E: Phản hồi trả về ngân hàng (Response Configuration) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center gap-space-sm pb-space-sm">
+<span class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">reply</span>
+</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">E. Phản hồi trả về ngân hàng (Receiver Sync Response)</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Quy định HTTP Status code và body trả về đồng bộ ngay khi nhận callback</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Status Code selection (4 Cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Mã phản hồi HTTP Status</label>
+<div class="flex items-center gap-space-xs">
+<input class="h-8 w-24 px-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-code-body text-code-body shadow-sm" max="599" min="100" type="number" value="200"/>
+<span class="px-space-sm py-1 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">200 OK</span>
+</div>
+<span class="font-body-sm text-[11px] text-outline mt-1">Khuyên dùng HTTP 200 để báo hiệu đã lưu nhận gói tin thành công cho phía Core</span>
+</div>
+<!-- Technical Callout Note -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex items-start gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary-container text-[18px] shrink-0 mt-0.5">lightbulb</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Ghi chú kỹ thuật đối soát:</span>
+<p class="font-body-sm text-body-sm mt-0.5 leading-relaxed">
+                Response này xác nhận simulator đã tiếp nhận callback, khác với status nghiệp vụ nằm trong payload. Core Banking chỉ cần mã xác nhận để hoàn tất pipeline truyền tin.
+              </p>
+</div>
+</div>
+</div>
+<!-- Static Response Body Editor (8 Cols) -->
+<div class="lg:col-span-8 flex flex-col">
+<div class="flex items-center justify-between px-space-md py-1.5 bg-surface-container-high rounded-t-lg">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface font-semibold">
+<span class="material-symbols-outlined text-[15px] text-primary">terminal</span>
+<span>Định dạng nội dung Response Body (JSON)</span>
+</div>
+<span class="font-label-sm text-[11px] text-on-surface-variant">application/json; charset=utf-8</span>
+</div>
+<div class="flex bg-surface-container-low rounded-b-lg overflow-hidden shadow-inner font-code-body text-code-body min-h-[110px]">
+<!-- Line Numbers -->
+<div class="w-8 py-space-sm bg-surface-container text-right pr-2 text-outline select-none font-code-body text-code-body flex flex-col leading-[22px]">
+<span>1</span><span>2</span><span>3</span><span>4</span>
+</div>
+<!-- Readonly JSON -->
+<textarea class="flex-1 p-space-sm bg-transparent text-on-surface font-code-body text-code-body leading-[22px] resize-none focus:outline-none border-0 h-[110px]" spellcheck="false">{
+  "code": "00",
+  "message": "Received"
+}</textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action Sticky Bar (Extra convenience) -->
+<div class="flex items-center justify-between py-space-md px-space-lg bg-surface-container-lowest rounded-xl shadow-sm">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+<span>Phiên bản kiểm thử: <strong>v1.4.0-uat</strong> • Sẵn sàng nhận webhook</span>
+</div>
+<div class="flex items-center gap-space-md">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface py-1" href="#">Hủy thay đổi</a>
+<button class="h-8 px-space-lg rounded-lg bg-primary-container text-on-primary hover:bg-primary font-headline-sm text-headline-sm transition-all flex items-center gap-space-xs shadow-md active:scale-95" id="btn-save-config-bottom" type="button">
+<span class="material-symbols-outlined text-[17px]">check</span>
+<span>Lưu cấu hình</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline JavaScript for Client Interactivity -->
+<script>
+  // 1. Secret Key Visibility Toggle
+  const toggleSecretBtn = document.getElementById('toggle-secret-btn');
+  const apiSecretInput = document.getElementById('api-secret-input');
+  const secretEyeIcon = document.getElementById('secret-eye-icon');
+  let isSecretVisible = false;
+
+  if (toggleSecretBtn && apiSecretInput) {
+    toggleSecretBtn.addEventListener('click', () => {
+      isSecretVisible = !isSecretVisible;
+      if (isSecretVisible) {
+        apiSecretInput.type = 'text';
+        secretEyeIcon.textContent = 'visibility_off';
+      } else {
+        apiSecretInput.type = 'password';
+        secretEyeIcon.textContent = 'visibility';
+      }
+    });
+  }
+
+  // 2. Copy Callback URL with feedback
+  const copyBtn = document.getElementById('copy-url-btn');
+  const urlText = document.getElementById('callback-url-text');
+  const copyIcon = document.getElementById('copy-icon');
+
+  if (copyBtn && urlText && copyIcon) {
+    copyBtn.addEventListener('click', () => {
+      const textToCopy = urlText.textContent.trim();
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        copyIcon.textContent = 'check';
+        copyIcon.classList.add('text-secondary');
+        setTimeout(() => {
+          copyIcon.textContent = 'content_copy';
+          copyIcon.classList.remove('text-secondary');
+        }, 1500);
+      });
+    });
+  }
+
+  // 3. Status Toggle Text
+  const statusToggle = document.getElementById('service-status-toggle');
+  const toggleLabel = document.getElementById('toggle-label');
+  if (statusToggle && toggleLabel) {
+    statusToggle.addEventListener('change', (e) => {
+      toggleLabel.textContent = e.target.checked ? 'Đang bật' : 'Đang tắt';
+    });
+  }
+
+  // 4. Save Config Toast Notification
+  const saveBtnTop = document.getElementById('btn-save-config');
+  const saveBtnBottom = document.getElementById('btn-save-config-bottom');
+  const toastSuccess = document.getElementById('toast-success');
+
+  const triggerToast = () => {
+    if (!toastSuccess) return;
+    toastSuccess.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-12');
+    toastSuccess.classList.add('opacity-100', 'translate-y-0');
+
+    setTimeout(() => {
+      toastSuccess.classList.add('opacity-0', 'pointer-events-none', 'translate-y-12');
+      toastSuccess.classList.remove('opacity-100', 'translate-y-0');
+    }, 3200);
+  };
+
+  if (saveBtnTop) saveBtnTop.addEventListener('click', triggerToast);
+  if (saveBtnBottom) saveBtnBottom.addEventListener('click', triggerToast);
+
+  // 5. Interactive Mapping Tester Logic
+  const mockJsonInput = document.getElementById('mock-json-input');
+  const btnRunTest = document.getElementById('btn-run-mapping-test');
+  const btnLoadValid = document.getElementById('btn-load-valid');
+  const btnLoadError = document.getElementById('btn-load-error');
+
+  const resValTransId = document.getElementById('res-val-transid');
+  const resValStatus = document.getElementById('res-val-status');
+  const resValTimestamp = document.getElementById('res-val-timestamp');
+  const mappingVerdict = document.getElementById('mapping-verdict');
+  const errorFeedbackContainer = document.getElementById('error-feedback-container');
+  const errorFeedbackText = document.getElementById('error-feedback-text');
+
+  const validPayload = `{\n  "transId": "TEST-001",\n  "code": "SUCCESS",\n  "time": "2026-10-18T00:05:00+07:00"\n}`;
+  const errorPayload = `{\n  "referenceCode": "TX-99812",\n  "statusDescription": "FAILURE_NOT_FOUND",\n  "createdAt": "Invalid-Date-String"\n}`;
+
+  if (btnLoadValid && mockJsonInput) {
+    btnLoadValid.addEventListener('click', () => {
+      mockJsonInput.value = validPayload;
+      runMappingValidation();
+    });
+  }
+
+  if (btnLoadError && mockJsonInput) {
+    btnLoadError.addEventListener('click', () => {
+      mockJsonInput.value = errorPayload;
+      runMappingValidation();
+    });
+  }
+
+  function runMappingValidation() {
+    try {
+      const parsed = JSON.parse(mockJsonInput.value);
+      
+      // Check transId
+      const transId = parsed.transId || (parsed.data && parsed.data.transId);
+      const statusCode = parsed.code || parsed.status;
+      const timeVal = parsed.time || parsed.timestamp;
+
+      if (!transId) {
+        errorFeedbackContainer.classList.remove('hidden');
+        errorFeedbackText.textContent = "Không tìm thấy trường tương ứng với JSONPath `$.transId` trong payload.";
+        mappingVerdict.textContent = "LỖI MAPPING";
+        mappingVerdict.className = "px-space-xs py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-[11px] font-bold";
+        resValTransId.textContent = "[MISSING]";
+        resValTransId.classList.add('text-error');
+        resValStatus.textContent = statusCode ? `"${statusCode}"` : "[MISSING]";
+        resValTimestamp.textContent = timeVal ? `"${timeVal}"` : "[Lỗi định dạng]";
+        return;
+      }
+
+      // Successful scenario
+      errorFeedbackContainer.classList.add('hidden');
+      mappingVerdict.textContent = "3/3 HỢP LỆ";
+      mappingVerdict.className = "px-space-xs py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-[11px] font-bold";
+
+      resValTransId.textContent = `"${transId}"`;
+      resValTransId.classList.remove('text-error');
+      resValStatus.textContent = `"${statusCode || 'UNKNOWN'}"`;
+      resValTimestamp.textContent = timeVal ? '"2026-10-18 00:05:00 +07:00"' : '"2026-10-18 00:05:00 +07:00"';
+      
+    } catch (e) {
+      errorFeedbackContainer.classList.remove('hidden');
+      errorFeedbackText.textContent = "Cú pháp JSON không hợp lệ: " + e.message;
+      mappingVerdict.textContent = "JSON HỎNG";
+      mappingVerdict.className = "px-space-xs py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-[11px] font-bold";
+    }
+  }
+
+  if (btnRunTest) {
+    btnRunTest.addEventListener('click', runMappingValidation);
+  }
+
+  // 6. Test Callback Button Notification
+  const btnTestCallback = document.getElementById('btn-test-callback');
+  if (btnTestCallback) {
+    btnTestCallback.addEventListener('click', () => {
+      alert("Đã kích hoạt gửi callback thử nghiệm tới sandbox receiver!\nKết quả: HTTP 200 OK (24ms)");
+    });
+  }
+</script></main></div></body></html>

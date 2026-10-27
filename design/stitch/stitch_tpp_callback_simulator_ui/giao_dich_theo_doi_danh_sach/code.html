@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"outline-variant":"#c7c4d8","surface-dim":"#cbdbf5","on-surface-variant":"#464555","inverse-surface":"#213145","on-error-container":"#93000a","on-secondary-fixed-variant":"#004c6e","tertiary-fixed-dim":"#ffb95f","surface-container":"#e5eeff","on-primary-fixed-variant":"#3323cc","on-secondary-container":"#004666","tertiary-container":"#885500","on-error":"#ffffff","surface-container-highest":"#d3e4fe","inverse-on-surface":"#eaf1ff","surface-container-low":"#eff4ff","on-primary-container":"#dad7ff","on-tertiary-fixed-variant":"#653e00","on-surface":"#0b1c30","on-background":"#0b1c30","on-primary":"#ffffff","secondary-fixed":"#c9e6ff","surface-bright":"#f8f9ff","tertiary":"#684000","secondary":"#006591","primary-fixed":"#e2dfff","on-tertiary-fixed":"#2a1700","on-tertiary":"#ffffff","surface-container-high":"#dce9ff","outline":"#777587","primary":"#3525cd","on-secondary":"#ffffff","primary-container":"#4f46e5","surface-container-lowest":"#ffffff","secondary-container":"#39b8fd","secondary-fixed-dim":"#89ceff","background":"#f8f9ff","tertiary-fixed":"#ffddb8","inverse-primary":"#c3c0ff","primary-fixed-dim":"#c3c0ff","on-primary-fixed":"#0f0069","error":"#ba1a1a","surface-tint":"#4d44e3","surface":"#f8f9ff","on-secondary-fixed":"#001e2f","on-tertiary-container":"#ffd4a4","surface-variant":"#d3e4fe","error-container":"#ffdad6"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-sm":"0.375rem","gutter-desktop":"1rem","space-lg":"1rem","space-md":"0.75rem","space-xl":"1.5rem","space-xs":"0.25rem","margin":"1rem","margin-desktop":"1.5rem","gutter":"0.75rem"},"fontFamily":{"label-sm":["JetBrains Mono"],"body-sm":["Inter"],"headline-sm":["Inter"],"body-lg":["Inter"],"headline-md":["Inter"],"code-body":["JetBrains Mono"],"label-md":["JetBrains Mono"],"body-md":["Inter"],"label-lg":["JetBrains Mono"],"headline-lg":["Inter"]},"fontSize":{"label-sm":["11px",{"lineHeight":"14px","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-sm":["15px",{"lineHeight":"20px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-md":["18px",{"lineHeight":"24px","letterSpacing":"-0.015em","fontWeight":"600"}],"code-body":["12px",{"lineHeight":"18px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","fontWeight":"500"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-lg":["13px",{"lineHeight":"18px","fontWeight":"500"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-60 bg-surface-container-lowest flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50"><div class="flex flex-col"><div class="p-space-lg"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">TPP Simulator</span><span class="px-space-xs py-0.5 rounded-lg bg-tertiary-container text-on-tertiary font-label-sm text-label-sm uppercase tracking-wide">UAT</span></div><p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">Môi trường kiểm thử</p><div class="mt-space-md p-space-sm rounded-lg bg-surface-container-low flex items-center gap-space-xs"><span class="material-symbols-outlined text-secondary text-[16px]">schedule</span><span class="font-label-sm text-label-sm text-on-surface-variant">Múi giờ: GMT+7 (Asia/Ho_Chi_Minh)</span></div></div><div class="px-space-md mt-space-xs"><nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary text-on-primary font-medium rounded-lg shadow-sm"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="services" href="#"><span class="material-symbols-outlined text-[18px]">webhook</span><span>Dịch vụ</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm transition-colors bg-primary text-on-primary font-medium rounded-lg shadow-sm" data-path="transactions" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span><span>Theo dõi giao dịch</span></a></nav></div></div><div class="p-space-md m-space-md rounded-lg bg-surface-container-low"><div class="flex items-start gap-space-xs"><span class="material-symbols-outlined text-primary text-[15px] mt-0.5">terminal</span><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface font-semibold">Simulator v1.4.0-uat</span><span class="font-body-sm text-body-sm text-on-surface-variant">Nhận HTTP Callback</span></div></div></div></aside><div class="pl-60"><header class="fixed top-0 left-60 right-0 h-14 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter-desktop"><div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm"><span class="material-symbols-outlined text-[16px]">domain</span><span>Ngân hàng Sandbox</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span class="text-on-surface font-medium">TPP Webhook Engine</span></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded-lg bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-secondary-container"></span><span class="font-label-sm text-label-sm text-on-surface font-medium">Endpoint Receiver: Đang hoạt động</span></div><div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant bg-surface-container-lowest px-space-sm py-1 rounded-lg"><span class="material-symbols-outlined text-[15px]">access_time</span><span>UAT GMT+7</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-14 w-full min-h-screen bg-surface"><div class="flex flex-col w-full">
+<!-- Top Ambient Diagnostic Glow -->
+<div class="relative w-full overflow-hidden px-gutter-desktop pt-space-lg pb-space-md">
+<div class="absolute -top-16 left-1/4 w-96 h-32 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -top-12 right-1/4 w-80 h-28 bg-secondary/5 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Page Header (Operational Metadata & Counter Stream) -->
+<div class="relative flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-lg">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary-container animate-ping"></div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Live Ingestion Bus</span>
+<span class="text-outline-variant font-label-sm text-label-sm">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">TPP-INGRESS-CLUSTER-02</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Theo dõi giao dịch &amp; Callback</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+          Giám sát thời gian thực các HTTP callback được gửi tới TPP Simulator từ hệ thống ngân hàng core &amp; payment gateway
+        </p>
+</div>
+<!-- Quick Metrics Summary Pill -->
+<div class="flex flex-wrap items-center gap-space-xs bg-surface-container-low px-space-md py-space-sm rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">query_stats</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">1,420</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">hôm nay</span>
+<span class="text-outline-variant font-label-sm text-label-sm mx-1">|</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">1,398</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">hợp lệ</span>
+<span class="text-outline-variant font-label-sm text-label-sm mx-1">|</span>
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span class="font-label-sm text-label-sm text-error font-semibold">22</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">lỗi mapping</span>
+</div>
+</div>
+<!-- Common Toolbar / Filtering Engine -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-md">
+<!-- Upper Controls Row -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-sm items-center">
+<!-- Service Selector -->
+<div class="md:col-span-3 flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Dịch vụ tích hợp</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-on-surface-variant text-[16px] pointer-events-none">hub</span>
+<select class="w-full h-8 pl-8 pr-7 bg-surface-container-low text-on-surface rounded-lg font-body-sm text-body-sm appearance-none outline-none focus:bg-surface-container cursor-pointer transition-colors" id="filter-service">
+<option value="all">Tất cả dịch vụ (3 active)</option>
+<option value="thu-ho">thu-ho (Thu hộ cước &amp; hóa đơn)</option>
+<option value="chi-ho">chi-ho (Chi hộ nhanh 24/7)</option>
+<option value="bien-dong-so-du">bien-dong-so-du (Notification biến động)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 text-on-surface-variant text-[16px] pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Transaction ID Search Input -->
+<div class="md:col-span-3 flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Mã giao dịch (transactionId)</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-on-surface-variant text-[16px]">search</span>
+<input class="w-full h-8 pl-8 pr-3 bg-surface-container-low text-on-surface placeholder:text-on-surface-variant/60 rounded-lg font-code-body text-code-body outline-none focus:bg-surface-container transition-colors" id="filter-txnid" placeholder="Ví dụ: TEST-001, TXN-88..." type="text"/>
+</div>
+</div>
+<!-- Range Time Picker -->
+<div class="md:col-span-3 flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Khung giờ nhận (GMT+7)</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-on-surface-variant text-[16px]">calendar_today</span>
+<select class="w-full h-8 pl-8 pr-7 bg-surface-container-low text-on-surface rounded-lg font-body-sm text-body-sm appearance-none outline-none focus:bg-surface-container cursor-pointer transition-colors">
+<option>Hôm nay (2026-10-18 00:00 - 23:59)</option>
+<option>1 Giờ vừa qua (Live window)</option>
+<option>Hôm qua (2026-10-17)</option>
+<option>Tùy chỉnh khoảng thời gian...</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 text-on-surface-variant text-[16px] pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Filter Actions CTA -->
+<div class="md:col-span-3 flex items-end gap-space-xs pt-4 md:pt-0">
+<button class="flex-1 h-8 px-space-md bg-primary hover:bg-primary/90 text-on-primary rounded-lg font-body-md text-body-md font-medium flex items-center justify-center gap-1 shadow-sm transition-transform active:scale-95" id="btn-apply-filter">
+<span class="material-symbols-outlined text-[15px]">filter_alt</span>
+<span>Áp dụng</span>
+</button>
+<button class="h-8 px-space-sm bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant rounded-lg font-body-md text-body-md flex items-center justify-center transition-colors" id="btn-reset-filter" title="Xóa bộ lọc">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+</button>
+</div>
+</div>
+<!-- Lower Realtime Status Strip -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs bg-surface-container-low/50 px-space-sm py-1.5 rounded-lg">
+<div class="flex items-center gap-space-sm">
+<label class="relative inline-flex items-center cursor-pointer select-none">
+<input checked="" class="sr-only peer" id="auto-refresh-toggle" type="checkbox"/>
+<div class="w-8 h-4 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-on-primary after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-primary"></div>
+<span class="ms-2 font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+              Tự cập nhật 5 giây
+            </span>
+</label>
+<span class="text-outline-variant font-label-sm text-label-sm hidden sm:inline">•</span>
+<div class="hidden sm:flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">format_image_left</span>
+<span>Không mất bộ lọc hoặc đóng drawer khi có dữ liệu mới</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md ml-auto">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Cập nhật lúc:</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold" id="last-updated-timer">10:25:02</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">(GMT+7)</span>
+</div>
+<button class="h-6 px-2 bg-surface-container-lowest hover:bg-surface-container text-on-surface rounded flex items-center gap-1 font-label-sm text-label-sm transition-all" id="manual-refresh-btn" title="Làm mới ngay">
+<span class="material-symbols-outlined text-[14px] transition-transform duration-500" id="refresh-icon">autorenew</span>
+<span class="hidden sm:inline">Tải lại</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Master Tabs Header -->
+<div class="mt-space-lg flex items-center justify-between border-b-0 pb-1">
+<div class="flex items-center gap-space-xs bg-surface-container-low p-1 rounded-xl">
+<button class="px-space-md py-1.5 rounded-lg font-headline-sm text-headline-sm transition-all bg-surface-container-lowest text-on-surface shadow-sm flex items-center gap-2" id="tab-btn-txns" onclick="switchMonitorTab('txns')">
+<span class="material-symbols-outlined text-[18px] text-primary">account_balance_wallet</span>
+<span>Tab 1: Giao dịch</span>
+<span class="px-1.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">128</span>
+</button>
+<button class="px-space-md py-1.5 rounded-lg font-headline-sm text-headline-sm transition-all text-on-surface-variant hover:text-on-surface flex items-center gap-2" id="tab-btn-allcb" onclick="switchMonitorTab('allcb')">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+<span>Tab 2: Tất cả callback</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">1,420</span>
+</button>
+</div>
+<!-- Quick Context Stat (Right Edge) -->
+<div class="hidden lg:flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">swap_calls</span>
+<span>Mô hình Ingestion: Song song &amp; Độc lập luồng nhận</span>
+</div>
+</div>
+</div>
+<!-- Main Content Stage Area -->
+<div class="px-gutter-desktop pb-space-xl flex flex-col gap-space-md">
+<!-- ================= TAB 1: GIAO DỊCH ================= -->
+<div class="flex flex-col gap-space-md" id="view-tab-txns">
+<!-- Sub-filter: Trạng thái nghiệp vụ -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm bg-surface-container-lowest p-space-sm rounded-lg shadow-sm">
+<div class="flex flex-wrap items-center gap-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium mr-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">tune</span> Trạng thái nghiệp vụ:
+          </span>
+<button class="status-filter-btn px-2.5 py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm font-medium">Tất cả (128)</button>
+<button class="status-filter-btn px-2.5 py-1 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm">SUCCESS (84)</button>
+<button class="status-filter-btn px-2.5 py-1 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm">PROCESSING (19)</button>
+<button class="status-filter-btn px-2.5 py-1 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm">FAILED (11)</button>
+<button class="status-filter-btn px-2.5 py-1 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm font-code-body">RC: 00 (10)</button>
+<button class="status-filter-btn px-2.5 py-1 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm font-code-body">RC: 99 (4)</button>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-tertiary">info</span>
+<span>1 dòng tương ứng 1 cặp (dịch vụ + transactionId)</span>
+</div>
+</div>
+<!-- Technical Architecture Callout Note -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">info</span>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between w-full gap-2">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<strong class="text-on-surface font-medium">Lưu ý kỹ thuật:</strong> Trạng thái tổng hợp dựa trên lần nhận gần nhất. Do mạng Sandbox/UAT ngân hàng phân tán, callback có thể đến không theo đúng thứ tự nghiệp vụ (out-of-order execution).
+          </p>
+<span class="shrink-0 font-label-sm text-label-sm px-2 py-0.5 bg-surface-container-lowest text-on-surface-variant rounded">LIFO Cache</span>
+</div>
+</div>
+<!-- Transactions Master Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/70 text-on-surface-variant font-label-sm text-label-sm">
+<th class="py-2.5 px-space-md">Dịch vụ</th>
+<th class="py-2.5 px-space-md">transactionId</th>
+<th class="py-2.5 px-space-md">
+<div class="flex items-center gap-1">
+<span>Trạng thái nhận gần nhất</span>
+<span class="material-symbols-outlined text-[13px] text-on-surface-variant" title="Trạng thái nguyên bản do ngân hàng trả về (neutral styling)">help</span>
+</div>
+</th>
+<th class="py-2.5 px-space-md">Thời gian nghiệp vụ</th>
+<th class="py-2.5 px-space-md">Nhận gần nhất</th>
+<th class="py-2.5 px-space-md text-center">Số callback</th>
+<th class="py-2.5 px-space-md text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-on-surface" id="txns-table-body">
+<!-- Row 1: Active Focus Example -->
+<tr class="group hover:bg-surface-container-low/40 transition-colors border-l-2 border-primary bg-primary-fixed/10">
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+                    thu-ho
+                  </span>
+</td>
+<td class="py-2.5 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="font-code-body text-code-body font-semibold text-primary">TEST-001</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity p-0.5 text-on-surface-variant hover:text-on-surface" onclick="copySnippet('TEST-001', this)" title="Sao chép transactionId">
+<span class="material-symbols-outlined text-[13px]">content_copy</span>
+</button>
+</div>
+</td>
+<td class="py-2.5 px-space-md">
+<!-- Neutral status chip according to requirement -->
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm tracking-wide">
+                    SUCCESS
+                  </span>
+</td>
+<td class="py-2.5 px-space-md font-label-sm text-label-sm text-on-surface-variant">
+                  2026-10-18 00:05:00
+                </td>
+<td class="py-2.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">10:24:15</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">2 phút trước</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold">
+                    3 callback
+                  </span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<button class="h-7 px-2.5 bg-surface-container-low hover:bg-primary hover:text-on-primary text-on-surface rounded-lg font-body-sm text-body-sm font-medium inline-flex items-center gap-1 transition-all" onclick="openTxnDrawer('TEST-001', 'thu-ho', 'SUCCESS')">
+<span>Xem chi tiết</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-surface-container-low/40 transition-colors">
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+                    chi-ho
+                  </span>
+</td>
+<td class="py-2.5 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="font-code-body text-code-body font-semibold text-on-surface">TXN-882910</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity p-0.5 text-on-surface-variant hover:text-on-surface" onclick="copySnippet('TXN-882910', this)">
+<span class="material-symbols-outlined text-[13px]">content_copy</span>
+</button>
+</div>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm tracking-wide">
+                    PROCESSING
+                  </span>
+</td>
+<td class="py-2.5 px-space-md font-label-sm text-label-sm text-on-surface-variant">
+                  2026-10-18 10:19:42
+                </td>
+<td class="py-2.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">10:20:01</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">5 phút trước</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-medium">
+                    1 callback
+                  </span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<button class="h-7 px-2.5 bg-surface-container-low hover:bg-primary hover:text-on-primary text-on-surface rounded-lg font-body-sm text-body-sm font-medium inline-flex items-center gap-1 transition-all" onclick="openTxnDrawer('TXN-882910', 'chi-ho', 'PROCESSING')">
+<span>Xem chi tiết</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Bank Code 00 raw value -->
+<tr class="group hover:bg-surface-container-low/40 transition-colors">
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+                    thu-ho
+                  </span>
+</td>
+<td class="py-2.5 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="font-code-body text-code-body font-semibold text-on-surface">PAY-991244</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity p-0.5 text-on-surface-variant hover:text-on-surface" onclick="copySnippet('PAY-991244', this)">
+<span class="material-symbols-outlined text-[13px]">content_copy</span>
+</button>
+</div>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold tracking-wide">
+                    00
+                  </span>
+</td>
+<td class="py-2.5 px-space-md font-label-sm text-label-sm text-on-surface-variant">
+                  2026-10-18 10:11:30
+                </td>
+<td class="py-2.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">10:12:08</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">13 phút trước</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold">
+                    2 callback
+                  </span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<button class="h-7 px-2.5 bg-surface-container-low hover:bg-primary hover:text-on-primary text-on-surface rounded-lg font-body-sm text-body-sm font-medium inline-flex items-center gap-1 transition-all" onclick="openTxnDrawer('PAY-991244', 'thu-ho', '00')">
+<span>Xem chi tiết</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: FAILED state -->
+<tr class="group hover:bg-surface-container-low/40 transition-colors">
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+                    bien-dong-so-du
+                  </span>
+</td>
+<td class="py-2.5 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="font-code-body text-code-body font-semibold text-on-surface">NOTIF-44120</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity p-0.5 text-on-surface-variant hover:text-on-surface" onclick="copySnippet('NOTIF-44120', this)">
+<span class="material-symbols-outlined text-[13px]">content_copy</span>
+</button>
+</div>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm tracking-wide">
+                    FAILED
+                  </span>
+</td>
+<td class="py-2.5 px-space-md font-label-sm text-label-sm text-on-surface-variant">
+                  2026-10-18 09:55:00
+                </td>
+<td class="py-2.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">09:56:12</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">29 phút trước</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-medium">
+                    1 callback
+                  </span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<button class="h-7 px-2.5 bg-surface-container-low hover:bg-primary hover:text-on-primary text-on-surface rounded-lg font-body-sm text-body-sm font-medium inline-flex items-center gap-1 transition-all" onclick="openTxnDrawer('NOTIF-44120', 'bien-dong-so-du', 'FAILED')">
+<span>Xem chi tiết</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</td>
+</tr>
+<!-- Row 5: Bank Code 99 Timeout raw value -->
+<tr class="group hover:bg-surface-container-low/40 transition-colors">
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+                    chi-ho
+                  </span>
+</td>
+<td class="py-2.5 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="font-code-body text-code-body font-semibold text-on-surface">TXN-773105</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity p-0.5 text-on-surface-variant hover:text-on-surface" onclick="copySnippet('TXN-773105', this)">
+<span class="material-symbols-outlined text-[13px]">content_copy</span>
+</button>
+</div>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold tracking-wide">
+                    99
+                  </span>
+</td>
+<td class="py-2.5 px-space-md font-label-sm text-label-sm text-on-surface-variant">
+                  2026-10-18 09:40:18
+                </td>
+<td class="py-2.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">09:41:00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">44 phút trước</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold">
+                    4 callback
+                  </span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<button class="h-7 px-2.5 bg-surface-container-low hover:bg-primary hover:text-on-primary text-on-surface rounded-lg font-body-sm text-body-sm font-medium inline-flex items-center gap-1 transition-all" onclick="openTxnDrawer('TXN-773105', 'chi-ho', '99')">
+<span>Xem chi tiết</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Controls -->
+<div class="p-space-md bg-surface-container-low/30 flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+            Hiển thị <span class="font-semibold text-on-surface">1 - 5</span> trong <span class="font-semibold text-on-surface">128</span> giao dịch
+          </div>
+<div class="flex items-center gap-1 select-none">
+<button class="w-7 h-7 flex items-center justify-center rounded bg-surface-container-lowest text-on-surface-variant opacity-50 cursor-not-allowed">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold">1</button>
+<button class="w-7 h-7 flex items-center justify-center rounded bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-sm text-label-sm">2</button>
+<button class="w-7 h-7 flex items-center justify-center rounded bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-sm text-label-sm">3</button>
+<span class="px-1 text-on-surface-variant font-label-sm text-label-sm">...</span>
+<button class="w-7 h-7 flex items-center justify-center rounded bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-sm text-label-sm">13</button>
+<button class="w-7 h-7 flex items-center justify-center rounded bg-surface-container-lowest hover:bg-surface-container text-on-surface">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= TAB 2: TẤT CẢ CALLBACK ================= -->
+<div class="hidden flex-col gap-space-md" id="view-tab-allcb">
+<!-- Tab 2 Stream Notification -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">stream</span>
+<span class="font-body-sm text-body-sm text-on-surface">
+            Nhật ký callback thô (Raw HTTP Feed) theo thứ tự thời gian nhận thực tế tại reverse proxy tiếp nhận.
+          </span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Buffer:</span>
+<span class="font-label-sm text-label-sm font-semibold text-secondary">Ring-buffer 5000 items</span>
+</div>
+</div>
+<!-- Tab 2 Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/70 text-on-surface-variant font-label-sm text-label-sm">
+<th class="py-2.5 px-space-md">Mã callback</th>
+<th class="py-2.5 px-space-md">Dịch vụ</th>
+<th class="py-2.5 px-space-md">transactionId</th>
+<th class="py-2.5 px-space-md">Status nghiệp vụ</th>
+<th class="py-2.5 px-space-md">Thời điểm nhận</th>
+<th class="py-2.5 px-space-md">Kết quả mapping</th>
+<th class="py-2.5 px-space-md">HTTP response</th>
+<th class="py-2.5 px-space-md text-right">Raw</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-on-surface">
+<!-- Event Item 1 -->
+<tr class="group hover:bg-surface-container-low/40 transition-colors">
+<td class="py-2.5 px-space-md">
+<span class="font-code-body text-code-body font-semibold text-primary">#CB-88421</span>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+                    thu-ho
+                  </span>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="font-code-body text-code-body font-semibold text-on-surface">TEST-001</span>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">
+                    SUCCESS
+                  </span>
+</td>
+<td class="py-2.5 px-space-md font-label-sm text-label-sm text-on-surface font-medium">
+                  10:24:15.102
+                </td>
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-secondary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> Hợp lệ
+                  </span>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="font-label-sm text-label-sm font-semibold text-secondary">200 OK</span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<button class="h-6 w-6 rounded bg-surface-container-low hover:bg-surface-container inline-flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="previewRawJson('#CB-88421')" title="Xem payload JSON">
+<span class="material-symbols-outlined text-[15px]">code</span>
+</button>
+</td>
+</tr>
+<!-- Event Item 2 -->
+<tr class="group hover:bg-surface-container-low/40 transition-colors">
+<td class="py-2.5 px-space-md">
+<span class="font-code-body text-code-body font-semibold text-primary">#CB-88420</span>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+                    chi-ho
+                  </span>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="font-code-body text-code-body font-semibold text-on-surface">TXN-882910</span>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">
+                    PROCESSING
+                  </span>
+</td>
+<td class="py-2.5 px-space-md font-label-sm text-label-sm text-on-surface font-medium">
+                  10:20:01.411
+                </td>
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-secondary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> Hợp lệ
+                  </span>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="font-label-sm text-label-sm font-semibold text-secondary">200 OK</span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<button class="h-6 w-6 rounded bg-surface-container-low hover:bg-surface-container inline-flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="previewRawJson('#CB-88420')" title="Xem payload JSON">
+<span class="material-symbols-outlined text-[15px]">code</span>
+</button>
+</td>
+</tr>
+<!-- Event Item 3: Mapping Error Case -->
+<tr class="group hover:bg-surface-container-low/40 transition-colors bg-error-container/20">
+<td class="py-2.5 px-space-md">
+<span class="font-code-body text-code-body font-semibold text-error">#CB-88419</span>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+                    thu-ho
+                  </span>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-error/10 text-error font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">warning</span> Không lấy được
+                  </span>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">
+                    UNKNOWN
+                  </span>
+</td>
+<td class="py-2.5 px-space-md font-label-sm text-label-sm text-on-surface font-medium">
+                  10:18:22.880
+                </td>
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">error</span> Lỗi mapping
+                  </span>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="font-label-sm text-label-sm font-semibold text-error">422 Unprocessable</span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<button class="h-6 w-6 rounded bg-surface-container-low hover:bg-surface-container inline-flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="previewRawJson('#CB-88419')" title="Xem payload JSON">
+<span class="material-symbols-outlined text-[15px]">code</span>
+</button>
+</td>
+</tr>
+<!-- Event Item 4 -->
+<tr class="group hover:bg-surface-container-low/40 transition-colors">
+<td class="py-2.5 px-space-md">
+<span class="font-code-body text-code-body font-semibold text-primary">#CB-88418</span>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+                    thu-ho
+                  </span>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="font-code-body text-code-body font-semibold text-on-surface">PAY-991244</span>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold">
+                    00
+                  </span>
+</td>
+<td class="py-2.5 px-space-md font-label-sm text-label-sm text-on-surface font-medium">
+                  10:12:08.305
+                </td>
+<td class="py-2.5 px-space-md">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-secondary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> Hợp lệ
+                  </span>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="font-label-sm text-label-sm font-semibold text-secondary">200 OK</span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<button class="h-6 w-6 rounded bg-surface-container-low hover:bg-surface-container inline-flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="previewRawJson('#CB-88418')" title="Xem payload JSON">
+<span class="material-symbols-outlined text-[15px]">code</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-space-md bg-surface-container-low/30 flex items-center justify-between">
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+            Hiển thị 4 trong 1,420 callback vừa ghi nhận
+          </div>
+<button class="px-space-md py-1 bg-surface-container-lowest hover:bg-surface-container text-on-surface rounded font-body-sm text-body-sm">
+            Tải thêm 50 callback...
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= FLYOUT DRAWER: TRANSACTION CALLBACK DRILLDOWN ================= -->
+<div class="fixed inset-0 bg-inverse-surface/40 backdrop-blur-sm z-50 hidden transition-opacity duration-300 opacity-0" id="drawer-backdrop" onclick="closeTxnDrawer()"></div>
+<div class="fixed top-0 right-0 h-full w-full max-w-2xl bg-surface-container-lowest shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-out flex flex-col justify-between" id="txn-drawer">
+<!-- Drawer Header -->
+<div class="p-space-lg bg-surface-container-low/60 flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">receipt_long</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wide text-on-surface-variant">Chi tiết luồng Callback Giao dịch</span>
+</div>
+<div class="flex items-center gap-space-sm mt-0.5">
+<span class="font-headline-md text-headline-md text-on-surface font-bold" id="drawer-txnid">TEST-001</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm" id="drawer-service">thu-ho</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm" id="drawer-status">SUCCESS</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant flex items-center justify-center transition-colors" onclick="closeTxnDrawer()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Drawer Content Scroll Area -->
+<div class="flex-1 overflow-y-auto p-space-lg flex flex-col gap-space-lg">
+<!-- Timeline of Received Callbacks for this Txn -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Lịch sử nhận (3 Callback Events)</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Xếp theo: Mới nhất trước</span>
+</div>
+<div class="space-y-space-sm">
+<!-- Event Item 1 (Latest) -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-code-body text-code-body font-bold text-primary">#CB-88421</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">SUCCESS</span>
+<span class="px-1.5 py-0.2 rounded bg-secondary-container/20 text-secondary font-label-sm text-label-sm font-semibold">200 OK</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">10:24:15.102 (GMT+7)</span>
+</div>
+<!-- Inset Code Box with Syntax Styling -->
+<div class="mt-2 rounded bg-surface-container-lowest p-space-sm font-code-body text-code-body overflow-x-auto">
+<div class="text-on-surface-variant font-label-sm text-label-sm pb-1 flex justify-between">
+<span>Payload Ingress Body (248 Bytes)</span>
+<button class="hover:text-primary transition-colors" onclick="copySnippet(this.nextElementSibling.innerText, this)">Copy</button>
+</div>
+<pre class="text-on-surface"><code>{
+  <span class="text-primary font-semibold">"serviceCode"</span>: <span class="text-secondary">"thu-ho"</span>,
+  <span class="text-primary font-semibold">"transactionId"</span>: <span class="text-secondary">"TEST-001"</span>,
+  <span class="text-primary font-semibold">"status"</span>: <span class="text-secondary">"SUCCESS"</span>,
+  <span class="text-primary font-semibold">"responseCode"</span>: <span class="text-tertiary">"00"</span>,
+  <span class="text-primary font-semibold">"settledAmount"</span>: <span class="text-tertiary">150000</span>,
+  <span class="text-primary font-semibold">"bankRef"</span>: <span class="text-secondary">"FT26291001928"</span>
+}</code></pre>
+</div>
+</div>
+<!-- Event Item 2 (Earlier) -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs opacity-80 hover:opacity-100 transition-opacity">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-code-body text-code-body font-bold text-on-surface">#CB-88390</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">PROCESSING</span>
+<span class="px-1.5 py-0.2 rounded bg-secondary-container/20 text-secondary font-label-sm text-label-sm font-semibold">200 OK</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">10:23:40.012 (GMT+7)</span>
+</div>
+<div class="mt-2 rounded bg-surface-container-lowest p-space-sm font-code-body text-code-body overflow-x-auto">
+<pre class="text-on-surface"><code>{
+  <span class="text-primary font-semibold">"serviceCode"</span>: <span class="text-secondary">"thu-ho"</span>,
+  <span class="text-primary font-semibold">"transactionId"</span>: <span class="text-secondary">"TEST-001"</span>,
+  <span class="text-primary font-semibold">"status"</span>: <span class="text-secondary">"PROCESSING"</span>
+}</code></pre>
+</div>
+</div>
+<!-- Event Item 3 (Initial Attempt) -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs opacity-70 hover:opacity-100 transition-opacity">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-code-body text-code-body font-bold text-on-surface">#CB-88385</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">PROCESSING</span>
+<span class="px-1.5 py-0.2 rounded bg-secondary-container/20 text-secondary font-label-sm text-label-sm font-semibold">200 OK</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">10:23:10.994 (GMT+7)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Callback khởi tạo tiến trình thu hộ từ đối tác ngân hàng.
+            </p>
+</div>
+</div>
+</div>
+<!-- HTTP Transport Headers Insight -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">encrypted</span>
+<span>HTTP Headers (Lần nhận #CB-88421)</span>
+</h3>
+<div class="space-y-1 font-code-body text-code-body text-on-surface-variant mt-1">
+<div class="flex justify-between py-0.5 border-b-0 bg-surface-container-lowest px-2 rounded">
+<span class="text-primary font-semibold">X-Bank-Signature</span>
+<span class="text-on-surface truncate max-w-xs">SHA256withRSA:9f8a...bc11</span>
+</div>
+<div class="flex justify-between py-0.5 border-b-0 bg-surface-container-lowest px-2 rounded">
+<span class="text-primary font-semibold">X-TPP-Timestamp</span>
+<span class="text-on-surface">1760757855102</span>
+</div>
+<div class="flex justify-between py-0.5 border-b-0 bg-surface-container-lowest px-2 rounded">
+<span class="text-primary font-semibold">Content-Type</span>
+<span class="text-on-surface">application/json; charset=utf-8</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Drawer Footer Actions -->
+<div class="p-space-md bg-surface-container-low flex items-center justify-between">
+<button class="h-8 px-space-md bg-primary hover:bg-primary/90 text-on-primary rounded-lg font-body-md text-body-md font-medium flex items-center gap-1 shadow-sm transition-transform active:scale-95" onclick="reTriggerWebhook()">
+<span class="material-symbols-outlined text-[16px]">replay</span>
+<span>Replay Callback vào Mock Endpoint</span>
+</button>
+<button class="h-8 px-space-md bg-surface-container-lowest hover:bg-surface-container text-on-surface rounded-lg font-body-md text-body-md" onclick="closeTxnDrawer()">
+        Đóng
+      </button>
+</div>
+</div>
+</div>
+<script>
+  // Tab Switching Logic
+  function switchMonitorTab(tab) {
+    const tabTxns = document.getElementById('view-tab-txns');
+    const tabAllCb = document.getElementById('view-tab-allcb');
+    const btnTxns = document.getElementById('tab-btn-txns');
+    const btnAllCb = document.getElementById('tab-btn-allcb');
+
+    if (tab === 'txns') {
+      tabTxns.classList.remove('hidden');
+      tabTxns.classList.add('flex');
+      tabAllCb.classList.add('hidden');
+      tabAllCb.classList.remove('flex');
+
+      btnTxns.className = "px-space-md py-1.5 rounded-lg font-headline-sm text-headline-sm transition-all bg-surface-container-lowest text-on-surface shadow-sm flex items-center gap-2";
+      btnAllCb.className = "px-space-md py-1.5 rounded-lg font-headline-sm text-headline-sm transition-all text-on-surface-variant hover:text-on-surface flex items-center gap-2";
+    } else {
+      tabTxns.classList.add('hidden');
+      tabTxns.classList.remove('flex');
+      tabAllCb.classList.remove('hidden');
+      tabAllCb.classList.add('flex');
+
+      btnAllCb.className = "px-space-md py-1.5 rounded-lg font-headline-sm text-headline-sm transition-all bg-surface-container-lowest text-on-surface shadow-sm flex items-center gap-2";
+      btnTxns.className = "px-space-md py-1.5 rounded-lg font-headline-sm text-headline-sm transition-all text-on-surface-variant hover:text-on-surface flex items-center gap-2";
+    }
+  }
+
+  // Drawer Interactions
+  function openTxnDrawer(txId, service, status) {
+    const backdrop = document.getElementById('drawer-backdrop');
+    const drawer = document.getElementById('txn-drawer');
+    
+    document.getElementById('drawer-txnid').innerText = txId;
+    document.getElementById('drawer-service').innerText = service;
+    document.getElementById('drawer-status').innerText = status;
+
+    backdrop.classList.remove('hidden');
+    setTimeout(() => {
+      backdrop.classList.remove('opacity-0');
+      backdrop.classList.add('opacity-100');
+      drawer.classList.remove('translate-x-full');
+    }, 10);
+  }
+
+  function closeTxnDrawer() {
+    const backdrop = document.getElementById('drawer-backdrop');
+    const drawer = document.getElementById('txn-drawer');
+
+    backdrop.classList.remove('opacity-100');
+    backdrop.classList.add('opacity-0');
+    drawer.classList.add('translate-x-full');
+
+    setTimeout(() => {
+      backdrop.classList.add('hidden');
+    }, 300);
+  }
+
+  // Raw JSON Inspection Pop
+  function previewRawJson(cbId) {
+    switchMonitorTab('txns');
+    openTxnDrawer('TEST-001', 'thu-ho', 'SUCCESS');
+  }
+
+  // Clipboard Helper with Feedback State
+  function copySnippet(text, buttonEl) {
+    navigator.clipboard.writeText(text).then(() => {
+      const originalHtml = buttonEl.innerHTML;
+      buttonEl.innerHTML = '<span class="material-symbols-outlined text-[13px] text-secondary font-bold">done</span>';
+      setTimeout(() => {
+        buttonEl.innerHTML = originalHtml;
+      }, 1400);
+    }).catch(err => {
+      console.warn("Clipboard access denied", err);
+    });
+  }
+
+  // Manual & Auto Refresh Timer Simulation
+  const refreshBtn = document.getElementById('manual-refresh-btn');
+  const refreshIcon = document.getElementById('refresh-icon');
+  const timerLabel = document.getElementById('last-updated-timer');
+
+  function triggerRefreshTick() {
+    if (refreshIcon) {
+      refreshIcon.classList.add('rotate-180');
+      setTimeout(() => refreshIcon.classList.remove('rotate-180'), 500);
+    }
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2, '0');
+    const m = String(now.getMinutes()).padStart(2, '0');
+    const s = String(now.getSeconds()).padStart(2, '0');
+    if (timerLabel) {
+      timerLabel.innerText = `${h}:${m}:${s}`;
+    }
+  }
+
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click', triggerRefreshTick);
+  }
+
+  // Auto Refresh Interval
+  setInterval(() => {
+    const toggle = document.getElementById('auto-refresh-toggle');
+    if (toggle && toggle.checked) {
+      triggerRefreshTick();
+    }
+  }, 5000);
+
+  function reTriggerWebhook() {
+    alert("Yêu cầu Replay Callback đã được đẩy vào Gateway queue.");
+  }
+</script></main></div></body></html>
